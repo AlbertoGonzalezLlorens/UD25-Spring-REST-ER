@@ -19,16 +19,14 @@ import com.crud.api.dto.Cajas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name="almacen")//en caso que la tabla sea diferente
-
+@Table(name="almacen")
 public class Almacenes {
-	//Atributos de entidad cliente
 		@Id
-		@GeneratedValue(strategy = GenerationType.IDENTITY)//busca ultimo valor e incrementa desde id final de db
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Long codigo;
-		@Column(name = "lugar")//no hace falta si se llama igual
+		@Column(name = "lugar")
 		private String lugar;
-		@Column(name = "capacidad")//no hace falta si se llama igual
+		@Column(name = "capacidad")
 		private int capacidad;
 		
 	    @OneToMany

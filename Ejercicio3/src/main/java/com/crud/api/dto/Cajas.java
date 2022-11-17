@@ -11,14 +11,14 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="caja")//en caso que la tabla sea diferente
+@Table(name="caja")
 public class Cajas {
 	@Id
 	@Column(name = "numreferencia")
 	private String numreferencia;
-	@Column(name = "contenido")//no hace falta si se llama igual
+	@Column(name = "contenido")
 	private String contenido;
-	@Column(name = "valor")//no hace falta si se llama igual
+	@Column(name = "valor")
 	private int valor;
 	
 	@ManyToOne
