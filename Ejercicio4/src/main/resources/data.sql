@@ -1,23 +1,22 @@
-drop table if exists departamentos;
-create table departamentos(
-codigo long auto_increment primary key,
+drop table if exists peliculas;
+create table peliculas(
+id int auto_increment primary key,
 nombre nvarchar(100),
-presupuesto int
+clasificacionedad int
 );
 
-drop table if exists empleados;
-create table empleados(
-dni varchar(8) primary key,
+drop table if exists salas;
+create table salas(
+id int auto_increment primary key,
 nombre nvarchar(100),
-apellidos nvarchar(255),
-departamento long,
-foreign key (departamento) references departamentos(codigo) on delete set null on update cascade
+pelicula int,
+foreign key (pelicula) references peliculas(id) on delete set null on update cascade
 );
 
-insert into departamentos(nombre,presupuesto) values ('Departamento 1',1000000);
-insert into departamentos(nombre,presupuesto) values ('Departamento 2',2000000);
-insert into departamentos(nombre,presupuesto) values ('Departamento 3',3000000);
+insert into peliculas(nombre,clasificacionedad) values ('El arca',6);
+insert into peliculas(nombre,clasificacionedad) values ('El arca 2',6);
+insert into peliculas(nombre,clasificacionedad) values ('El arca the beginning',6);
 
-insert into empleados(dni,nombre,apellidos,departamento) values ('11111111','Nombre 1','Apellido 1',1);
-insert into empleados(dni,nombre,apellidos,departamento) values ('11111112','Nombre 2','Apellido 2',1);
-insert into empleados(dni,nombre,apellidos,departamento) values ('11111113','Nombre 3','Apellido 3',3);
+insert into salas(nombre,pelicula) values ('sala 1',1);
+insert into salas(nombre,pelicula) values ('sala 2',2);
+insert into salas(nombre,pelicula) values ('sala 3',3);
