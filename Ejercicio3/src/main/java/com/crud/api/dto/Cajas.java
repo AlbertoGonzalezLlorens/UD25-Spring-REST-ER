@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="caja")
+@Table(name="cajas")
 public class Cajas {
 	@Id
 	@Column(name = "numreferencia")
