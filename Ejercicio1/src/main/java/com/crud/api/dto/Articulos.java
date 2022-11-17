@@ -1,6 +1,5 @@
 package com.crud.api.dto;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,40 +8,42 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="articulos")//en caso que la tabla sea diferente
+@Table(name = "articulos") 
 public class Articulos {
+
+	// Atributos de la entidad Empleado
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)//busca ultimo valor e incrementa desde id final de db
-	private Long codigo;
-	@Column(name = "nombre")//no hace falta si se llama igual
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	private String nombre;
-	@Column(name = "precio")//no hace falta si se llama igual
 	private int precio;
 	
+
 	@ManyToOne
-    @JoinColumn(name="fabricante")
-    private Fabricante fabricante;
-	
+	@JoinColumn(name = "fabricante")
+	private Fabricantes fabricante;
+ 
+	// Constructores
+
 	public Articulos() {
-		
 	}
-	
-	public Articulos(Long codigo, String nombre, int precio, Fabricante fabricante) {
-		//super();
-		this.codigo = codigo;
+
+	public Articulos(int id, String nombre, int precio, Fabricantes fabricante) {
+		this.id = id;
 		this.nombre = nombre;
 		this.precio = precio;
 		this.fabricante = fabricante;
 	}
 
-	public Long getCodigo() {
-		return codigo;
+	// Setters y getters
+
+	public int getId() {
+		return id;
 	}
 
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNombre() {
@@ -61,19 +62,18 @@ public class Articulos {
 		this.precio = precio;
 	}
 
-	public Fabricante getFabricante() {
+	public Fabricantes getFabricante() {
 		return fabricante;
 	}
 
-	public void setFabricante(Fabricante fabricante) {
+	public void setFabricante(Fabricantes fabricante) {
 		this.fabricante = fabricante;
 	}
 
+	// To string personalizado
 	@Override
 	public String toString() {
-		return "Articulos [codigo=" + codigo + ", nombre=" + nombre + ", precio=" + precio + ", fabricante="
-				+ fabricante + "]";
+		return "Empleado [id = " + id + ", nombre = " + nombre + ", precio " + precio + ", fabricante" + fabricante
+				+ " ] ";
 	}
-	
-	
 }

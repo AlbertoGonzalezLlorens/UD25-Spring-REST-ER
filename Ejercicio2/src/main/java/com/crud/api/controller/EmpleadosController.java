@@ -64,7 +64,7 @@ public class EmpleadosController {
 		return empleado_actualizado;
 	}
 	
-	@DeleteMapping("/empleados/{id}")
+	@DeleteMapping("/empleados/{dni}")
 	public void eleiminarEmpleado(@PathVariable(name="dni")String dni) {
 		empleadoServideImpl.eliminarEmpleados(dni);
 	}

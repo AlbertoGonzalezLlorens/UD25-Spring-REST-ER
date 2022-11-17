@@ -9,41 +9,34 @@ import com.crud.api.dao.IArticulosDAO;
 import com.crud.api.dto.Articulos;
 
 @Service
-public class ArticulosServiceImpl implements IArticulosService{
-	
-	//Utilizamos los metodos de la interface IArticulosDAO, es como si instaciaramos.
+public class ArticulosServiceImpl implements IArticulosService {
+
 	@Autowired
-	IArticulosDAO iArticulosDAO;
-	
+	IArticulosDAO iArticuloDAO;
+
 	@Override
 	public List<Articulos> listarArticulos() {
-		
-		return iArticulosDAO.findAll();
+		return iArticuloDAO.findAll();
 	}
 
 	@Override
-	public Articulos guardarArticulos(Articulos articulo) {
-		
-		return iArticulosDAO.save(articulo);
+	public Articulos crearArticulos(Articulos articulo) {
+		return iArticuloDAO.save(articulo);
 	}
 
 	@Override
-	public Articulos articuloXID(Long codigo) {
-		
-		return iArticulosDAO.findById(codigo).get();
+	public Articulos leerArticulos(int id) {
+		return iArticuloDAO.findById(id).get();
 	}
 
 	@Override
 	public Articulos actualizarArticulos(Articulos articulo) {
-		
-		return iArticulosDAO.save(articulo);
+		return iArticuloDAO.save(articulo);
 	}
 
 	@Override
-	public void eliminarArticulos(Long codigo) {
-		
-		iArticulosDAO.deleteById(codigo);
-		
+	public void borrarArticulos(int id) {
+		iArticuloDAO.deleteById(id);
 	}
 
 }

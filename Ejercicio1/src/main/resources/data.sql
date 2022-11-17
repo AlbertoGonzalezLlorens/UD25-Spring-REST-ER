@@ -1,22 +1,22 @@
-drop table if exists fabricante;
-create table fabricante (
-codigo long auto_increment primary key,
+drop table if exists fabricantes;
+create table fabricantes (
+id int auto_increment primary key,
 nombre nvarchar(100)
 );
 
 drop table if exists articulos;
 create table articulos (
-codigo long auto_increment primary key,
+id int auto_increment primary key,
 nombre nvarchar(100),
 precio int,
-fabricante long,
-foreign key (fabricante) references fabricante(codigo) on delete set null on update cascade
+fabricante int,
+foreign key (fabricante) references fabricantes(id) on delete set null on update cascade
 );
 
-insert into fabricante (nombre)values('Fabricante 1');
-insert into fabricante (nombre)values('Fabricante 2');
-insert into fabricante (nombre)values('Fabricante 3');
-insert into fabricante (nombre)values('Fabricante 4');
+insert into fabricantes (nombre)values('Fabricante 1');
+insert into fabricantes (nombre)values('Fabricante 2');
+insert into fabricantes (nombre)values('Fabricante 3');
+insert into fabricantes (nombre)values('Fabricante 4');
 
 insert into articulos (nombre,precio,fabricante)values('Articulo 1', 125,1);
 insert into articulos (nombre,precio,fabricante)values('Articulo 2', 125,1);
