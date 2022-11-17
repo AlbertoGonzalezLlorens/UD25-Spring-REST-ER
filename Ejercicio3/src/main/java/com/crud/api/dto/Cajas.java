@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Table(name="caja")//en caso que la tabla sea diferente
 public class Cajas {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)//busca ultimo valor e incrementa desde id final de db
+	@Column(name = "numreferencia")
 	private String numreferencia;
 	@Column(name = "contenido")//no hace falta si se llama igual
 	private String contenido;
