@@ -21,7 +21,7 @@ import javax.persistence.TemporalType;
 public class Empleados {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "dni")
 	private String dni;
 	@Column(name = "nombre")
 	private String nombre;
